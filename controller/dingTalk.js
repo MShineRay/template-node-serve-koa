@@ -8,25 +8,11 @@
 const {markdown} = require('../common/dingTalk');
 
 module.exports.markdown = async function(ctx) {
-  console.log(22)
-  // console.log(ctx)
-  // await dingTalk.requestPost({
-  //   body: {
-  //     "msgtype": "markdown",
-  //     "markdown": {
-  //       "title":"前端报错",
-  //       "text":11
-  //     }
-  //   }
-  // }).then((data)=>{
-  //   console.log(data)
-  //   ctx.body = '32432'
-  // })
-  await markdown({text:11}).then((data)=>{
+  console.log(ctx.request.body.text)
+  await markdown({text:ctx.request.body.text}).then((data)=>{
     console.log(data)
-    ctx.body = '1111'
+    ctx.body = data
   }).catch((err)=>{
-    console.log(2232423)
     console.log(err)
     ctx.body = err
   })

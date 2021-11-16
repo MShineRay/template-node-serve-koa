@@ -92,7 +92,7 @@ module.exports.markdown = function(data={}, callback) {
       "msgtype": "markdown",
       "markdown": {
         "title":"【前端报错】",
-        "text": data.text
+        "text":`#### 日志详情 \n~~~json\n${JSON.stringify(data.text,null, 2)}\n~~~`
       }
     }
   })
